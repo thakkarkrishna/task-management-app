@@ -1,13 +1,14 @@
 import mongoose from "mongoose";
-mongoose.connect("mongodb://localhost:27017/TaskManagement")
 
-const db = mongoose.connection
-db.on('connected', () => {
-    console.log("Connected Successfully")
-})
+const connectDB = async (mongoUri) => {
+  try {
+    await mongoose.connect(mongoUri);
 
-db.on('error', (err) => {
-    console.log("Error in connection",+err)
-})
+    console.log("MongoDB Connected");
+  } catch (error) {
+    console.log("MongoDB Error:", error);
+    process.exit(1);
+  }
+};
 
-export default db;
+export default connectDB;
