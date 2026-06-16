@@ -3,7 +3,7 @@ dotenv.config();
 
 import express from "express";
 import connectDB from "./config/db.js";
-import taskRoutes from "./routes/taskroutes.js";
+import taskRoutes from "./routes/taskRoutes.js";
 
 const app = express();
 
